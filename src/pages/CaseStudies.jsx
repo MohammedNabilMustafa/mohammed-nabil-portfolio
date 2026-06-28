@@ -2,23 +2,22 @@ import PageMeta from '../components/PageMeta';
 import Hero from '../components/Hero';
 import CaseStudyCard from '../components/CaseStudyCard';
 import CTASection from '../components/CTASection';
-import { siteConfig } from '../data/site';
-import { caseStudies } from '../data/caseStudies';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function CaseStudies() {
+  const { content } = useLanguage();
+  const { meta, caseStudiesPage, caseStudies, hero } = content;
+
   return (
     <>
-      <PageMeta
-        title={`Case Studies — ${siteConfig.name}`}
-        description="Enterprise ERP, commerce, and starter business platforms built for manufacturing companies, fashion brands, and growing businesses."
-      />
+      <PageMeta title={meta.caseStudies.title} description={meta.caseStudies.description} />
 
       <Hero
-        eyebrow="Case Studies"
-        headline="Systems That Run Businesses"
-        subtitle="Three production-grade platforms — enterprise manufacturing, commerce operations, and starter ERP for SMBs."
-        primaryCta={{ label: 'Ain Shams ERP', path: '/case-studies/ain-shams-press' }}
-        secondaryCta={{ label: 'Minsal Commerce OS', path: '/case-studies/minsal-commerce-os' }}
+        eyebrow={caseStudiesPage.hero.eyebrow}
+        headline={caseStudiesPage.hero.headline}
+        subtitle={caseStudiesPage.hero.subtitle}
+        primaryCta={{ label: caseStudiesPage.hero.primaryCta, path: '/case-studies/ain-shams-press' }}
+        secondaryCta={{ label: caseStudiesPage.hero.secondaryCta, path: '/case-studies/minsal-commerce-os' }}
         compact
       />
 
@@ -31,8 +30,8 @@ export default function CaseStudies() {
       </section>
 
       <CTASection
-        title="Need a Platform Built for Your Business?"
-        subtitle="I partner with manufacturing companies, commerce brands, and growing businesses to design custom operating systems tailored to their workflows."
+        title={caseStudiesPage.cta.title}
+        subtitle={caseStudiesPage.cta.subtitle}
       />
     </>
   );

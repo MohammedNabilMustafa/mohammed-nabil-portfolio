@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 import Screenshot from './ScreenshotPlaceholder';
 
 export default function FeaturedCaseStudy({ study, index = 0, reversed = false }) {
+  const { content } = useLanguage();
+  const { common } = content;
+  const metrics = study.metrics ?? [];
+
   const linkClass = {
     enterprise: '',
     commerce: ' featured-case-study__link--warm',
@@ -23,7 +28,7 @@ export default function FeaturedCaseStudy({ study, index = 0, reversed = false }
           src={study.image}
           alt={study.imageAlt}
           title={study.title}
-          description={study.image ? 'Live platform interface' : 'Platform screenshot — coming soon'}
+          description={study.image ? common.livePlatform : common.screenshotComingSoon}
           variant={study.variant}
           large
         />
@@ -43,7 +48,7 @@ export default function FeaturedCaseStudy({ study, index = 0, reversed = false }
         )}
 
         <div className="featured-case-study__metrics">
-          {study.metrics.map((m) => (
+          {metrics.map((m) => (
             <div key={m.label} className="featured-case-study__metric">
               <strong>{m.value}</strong>
               <span>{m.label}</span>
@@ -61,11 +66,11 @@ export default function FeaturedCaseStudy({ study, index = 0, reversed = false }
 
         {study.path ? (
           <Link to={study.path} className={`featured-case-study__link${linkClass}`}>
-            View Case Study
+            {common.viewCaseStudy}
             <ArrowRight size={16} />
           </Link>
         ) : (
-          <span className="featured-case-study__coming">Case study page coming soon</span>
+          <span className="featured-case-study__coming">{common.caseStudyComingSoon}</span>
         )}
       </div>
     </motion.article>

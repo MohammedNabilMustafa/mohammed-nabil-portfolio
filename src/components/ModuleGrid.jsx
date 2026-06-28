@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export default function ModuleGrid({ modules, variant = 'default' }) {
+export default function ModuleGrid({ modules = [], variant = 'default' }) {
   return (
     <div className="module-grid">
       {modules.map((mod, i) => (

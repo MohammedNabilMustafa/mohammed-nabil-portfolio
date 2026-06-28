@@ -1,6 +1,8 @@
+import { Database } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function ServiceCard({ icon: Icon, title, description, index = 0 }) {
+  const ResolvedIcon = Icon || Database;
   return (
     <motion.article
       className="service-card"
@@ -10,7 +12,7 @@ export default function ServiceCard({ icon: Icon, title, description, index = 0 
       transition={{ duration: 0.4, delay: index * 0.04 }}
       whileHover={{ y: -3 }}
     >
-      <div className="service-card__icon"><Icon size={20} strokeWidth={1.6} /></div>
+      <div className="service-card__icon"><ResolvedIcon size={20} strokeWidth={1.6} /></div>
       <h3>{title}</h3>
       <p>{description}</p>
     </motion.article>

@@ -12,19 +12,18 @@ import {
   ImpactList,
   BulletList,
 } from '../components/CaseStudySections';
-import { siteConfig } from '../data/site';
-import { minsalCaseStudy, featuredCaseStudies } from '../data/caseStudies';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function MinsalCaseStudy() {
-  const study = minsalCaseStudy;
-  const metrics = featuredCaseStudies[1].metrics;
+  const { content } = useLanguage();
+  const { meta, caseStudiesDetail, featuredCaseStudies, caseStudySections: cs } = content;
+  const study = caseStudiesDetail.minsal;
+  const metrics = featuredCaseStudies.find((s) => s.slug === 'minsal-commerce-os')?.metrics || [];
+  const cta = cs.ctaMinsal;
 
   return (
     <div className="theme-commerce">
-      <PageMeta
-        title={`${study.title} — Case Study | ${siteConfig.name}`}
-        description="Full-stack commerce and business operating system for a fashion brand — Next.js, TypeScript, 81 routes, 7 core modules."
-      />
+      <PageMeta title={meta.minsal.title} description={meta.minsal.description} />
 
       <CaseStudyPageHero study={study} theme="commerce">
         <p className="cs-hero__summary">{study.overview}</p>
@@ -46,66 +45,66 @@ export default function MinsalCaseStudy() {
         </div>
       </section>
 
-      <ProseSection title="Overview" content={study.overview} eyebrow="Case Study" />
+      <ProseSection title={cs.overview} content={study.overview} eyebrow={cs.caseStudy} />
 
-      <ProseSection title="Business Challenge" alt eyebrow="Problem">
+      <ProseSection title={cs.challenge} alt eyebrow={cs.problem}>
         <BulletList items={study.challenge} />
       </ProseSection>
 
-      <ProseSection title="Solution" content={study.solution} eyebrow="Approach" />
+      <ProseSection title={cs.solution} content={study.solution} eyebrow={cs.approach} />
 
       <section className="section section--alt">
         <div className="container">
-          <SectionHeader eyebrow="Platform" title="Core Modules" subtitle="Seven integrated business modules plus a command center dashboard." align="left" />
+          <SectionHeader eyebrow={cs.platform} title={cs.coreModules} subtitle={cs.modulesMinsal} align="left" />
           <ModuleGrid modules={study.coreModules} variant="commerce" />
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <SectionHeader eyebrow="Operations" title="Supply Chain Flow" subtitle="From sourcing to finance — every step connected inside one platform." />
+          <SectionHeader eyebrow={cs.operations} title={cs.supplyChainFlow} subtitle={cs.workflowMinsal} />
           <WorkflowTimeline steps={study.supplyChainFlow} variant="commerce" />
         </div>
       </section>
 
       <section className="section section--alt">
         <div className="container">
-          <SectionHeader eyebrow="Engineering" title="System Architecture" subtitle="Dual-surface architecture — storefront and admin platform on a type-safe foundation." align="left" />
+          <SectionHeader eyebrow={cs.engineering} title={cs.architecture} subtitle={cs.archMinsal} align="left" />
           <ArchitectureSection layers={study.architecture} variant="commerce" />
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <SectionHeader eyebrow="Stack" title="Technology Stack" align="left" />
+          <SectionHeader eyebrow={cs.stack} title={cs.techStack} align="left" />
           <div className="tech-row">
-            {study.technologyStack.map((t) => (
+            {(study.technologyStack ?? []).map((t) => (
               <span key={t} className="chip chip--warm">{t}</span>
             ))}
           </div>
         </div>
       </section>
 
-      <ProseSection title="Business Impact" alt eyebrow="Outcomes">
+      <ProseSection title={cs.businessImpact} alt eyebrow={cs.outcomes}>
         <ImpactList items={study.businessImpact} theme="commerce" />
       </ProseSection>
 
       <section className="section">
         <div className="container">
-          <SectionHeader eyebrow="Platform" title="Gallery" subtitle="Screenshot placeholders — replace with actual platform captures." />
+          <SectionHeader eyebrow={cs.platform} title={cs.gallery} subtitle={cs.gallerySubtitle} />
           <GalleryGrid items={study.gallery} variant="commerce" />
         </div>
       </section>
 
-      <ProseSection title="Results" alt eyebrow="Summary">
+      <ProseSection title={cs.results} alt eyebrow={cs.summary}>
         <ImpactList items={study.results} theme="commerce" />
       </ProseSection>
 
       <CTASection
         theme="commerce"
-        title="Building a Commerce Platform for Your Brand?"
-        subtitle="I design full-stack e-commerce and operations systems that unify storefronts, admin tools, supply chain, and finance."
-        secondaryLabel="View Ain Shams Case Study"
+        title={cta.title}
+        subtitle={cta.subtitle}
+        secondaryLabel={cta.secondary}
         secondaryPath="/case-studies/ain-shams-press"
       />
     </div>

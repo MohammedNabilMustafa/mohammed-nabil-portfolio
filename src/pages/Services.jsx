@@ -3,39 +3,31 @@ import Hero from '../components/Hero';
 import ServiceCard from '../components/ServiceCard';
 import SectionHeader from '../components/SectionHeader';
 import CTASection from '../components/CTASection';
-import { siteConfig } from '../data/site';
-import { services } from '../data/services';
-
-const process = [
-  { step: '01', title: 'Discovery', text: 'Map current workflows, pain points, and data flows across every department.' },
-  { step: '02', title: 'Architecture', text: 'Design module structure, database schema, roles, and integration points.' },
-  { step: '03', title: 'Development', text: 'Build and deploy in phases — starting with highest-impact operational workflows.' },
-  { step: '04', title: 'Evolution', text: 'Expand the platform as the business grows — new modules, dashboards, and automations.' },
-];
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Services() {
+  const { content } = useLanguage();
+  const { meta, services, servicesPage, hero } = content;
+
   return (
     <>
-      <PageMeta
-        title={`Services — ${siteConfig.name}`}
-        description="Custom ERP, CRM, finance, inventory, manufacturing, supply chain, AI assistants, and dashboard development for enterprise clients."
-      />
+      <PageMeta title={meta.services.title} description={meta.services.description} />
 
       <Hero
-        eyebrow="Services"
-        headline="Complete Business Systems — Not Features"
-        subtitle="I engineer custom platforms that map to how your company actually operates — from order intake to production, finance, and executive reporting."
-        primaryCta={{ label: 'View Case Studies', path: '/case-studies' }}
-        secondaryCta={{ label: "Let's Talk", path: '/contact' }}
+        eyebrow={servicesPage.hero.eyebrow}
+        headline={servicesPage.hero.headline}
+        subtitle={servicesPage.hero.subtitle}
+        primaryCta={hero.primaryCta}
+        secondaryCta={hero.secondaryCta}
         compact
       />
 
       <section className="section">
         <div className="container">
           <SectionHeader
-            eyebrow="Capabilities"
-            title="What I Deliver"
-            subtitle="Every engagement starts with understanding your operations — then building the modules your team needs."
+            eyebrow={servicesPage.deliver.eyebrow}
+            title={servicesPage.deliver.title}
+            subtitle={servicesPage.deliver.subtitle}
           />
           <div className="services-grid">
             {services.map((s, i) => (
@@ -47,9 +39,9 @@ export default function Services() {
 
       <section className="section section--alt">
         <div className="container container--narrow">
-          <SectionHeader eyebrow="Process" title="How I Work" align="left" />
+          <SectionHeader eyebrow={servicesPage.process.eyebrow} title={servicesPage.process.title} align="left" />
           <div className="process-grid">
-            {process.map((item) => (
+            {(servicesPage.steps ?? []).map((item) => (
               <article key={item.step} className="process-card">
                 <span className="process-card__step">{item.step}</span>
                 <h3>{item.title}</h3>

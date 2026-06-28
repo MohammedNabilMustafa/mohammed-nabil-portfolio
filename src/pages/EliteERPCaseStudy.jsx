@@ -10,19 +10,18 @@ import {
   ImpactList,
   BulletList,
 } from '../components/CaseStudySections';
-import { siteConfig } from '../data/site';
-import { eliteErpCaseStudy, featuredCaseStudies } from '../data/caseStudies';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function EliteERPCaseStudy() {
-  const study = eliteErpCaseStudy;
-  const metrics = featuredCaseStudies[2].metrics;
+  const { content } = useLanguage();
+  const { meta, caseStudiesDetail, featuredCaseStudies, caseStudySections: cs } = content;
+  const study = caseStudiesDetail.elite;
+  const metrics = featuredCaseStudies.find((s) => s.slug === 'elite-erp')?.metrics || [];
+  const cta = cs.ctaElite;
 
   return (
     <div className="theme-starter">
-      <PageMeta
-        title={`${study.title} — Case Study | ${siteConfig.name}`}
-        description="Elite ERP — a lightweight business management platform for small and medium businesses. CRM, orders, inventory, finance, and dashboards."
-      />
+      <PageMeta title={meta.elite.title} description={meta.elite.description} />
 
       <CaseStudyPageHero study={study} theme="starter">
         <p className="cs-hero__summary">{study.overview}</p>
@@ -41,59 +40,59 @@ export default function EliteERPCaseStudy() {
         </div>
       </section>
 
-      <ProseSection title="Overview" content={study.overview} eyebrow="Case Study" />
+      <ProseSection title={cs.overview} content={study.overview} eyebrow={cs.caseStudy} />
 
-      <ProseSection title="Business Challenge" alt eyebrow="Problem">
+      <ProseSection title={cs.challenge} alt eyebrow={cs.problem}>
         <BulletList items={study.challenge} />
       </ProseSection>
 
-      <ProseSection title="Solution" content={study.solution} eyebrow="Approach" />
+      <ProseSection title={cs.solution} content={study.solution} eyebrow={cs.approach} />
 
       <section className="section section--alt">
         <div className="container">
-          <SectionHeader eyebrow="Platform" title="Core Modules" subtitle="Essential business modules designed for SMB operations — without enterprise overhead." align="left" />
+          <SectionHeader eyebrow={cs.platform} title={cs.coreModules} subtitle={cs.modulesElite} align="left" />
           <ModuleGrid modules={study.coreModules} variant="starter" />
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <SectionHeader eyebrow="Engineering" title="System Architecture" subtitle="Cloud-native, modular architecture optimized for small and medium businesses." align="left" />
+          <SectionHeader eyebrow={cs.engineering} title={cs.architecture} subtitle={cs.archElite} align="left" />
           <ArchitectureSection layers={study.architecture} variant="starter" />
         </div>
       </section>
 
       <section className="section section--alt">
         <div className="container">
-          <SectionHeader eyebrow="Stack" title="Technology Stack" align="left" />
+          <SectionHeader eyebrow={cs.stack} title={cs.techStack} align="left" />
           <div className="tech-row">
-            {study.technologyStack.map((t) => (
+            {(study.technologyStack ?? []).map((t) => (
               <span key={t} className="chip chip--starter">{t}</span>
             ))}
           </div>
         </div>
       </section>
 
-      <ProseSection title="Business Impact" eyebrow="Outcomes">
+      <ProseSection title={cs.businessImpact} eyebrow={cs.outcomes}>
         <ImpactList items={study.businessImpact} theme="starter" />
       </ProseSection>
 
       <section className="section section--alt">
         <div className="container">
-          <SectionHeader eyebrow="Platform" title="Gallery" subtitle="Screenshot placeholders — replace with actual platform captures." />
+          <SectionHeader eyebrow={cs.platform} title={cs.gallery} subtitle={cs.gallerySubtitle} />
           <GalleryGrid items={study.gallery} variant="starter" />
         </div>
       </section>
 
-      <ProseSection title="Results" eyebrow="Summary">
+      <ProseSection title={cs.results} eyebrow={cs.summary}>
         <ImpactList items={study.results} theme="starter" />
       </ProseSection>
 
       <CTASection
         theme="starter"
-        title="Need a Starter ERP for Your Business?"
-        subtitle="I build focused business management platforms for SMBs ready to move beyond spreadsheets — and scale when they grow."
-        secondaryLabel="View Ain Shams Case Study"
+        title={cta.title}
+        subtitle={cta.subtitle}
+        secondaryLabel={cta.secondary}
         secondaryPath="/case-studies/ain-shams-press"
       />
     </div>

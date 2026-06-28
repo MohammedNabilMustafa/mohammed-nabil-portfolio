@@ -7,49 +7,54 @@ import IndustriesSection from '../components/IndustriesSection';
 import SolutionsSection from '../components/SolutionsSection';
 import SectionHeader from '../components/SectionHeader';
 import CTASection from '../components/CTASection';
-import { heroContent, siteConfig } from '../data/site';
-import { homeStats } from '../data/stats';
-import { services } from '../data/services';
-import { featuredCaseStudies } from '../data/caseStudies';
-import { industries } from '../data/industries';
-import { solutions } from '../data/solutions';
-
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: siteConfig.name,
-  description: siteConfig.description,
-  founder: { '@type': 'Person', name: siteConfig.name, jobTitle: siteConfig.role },
-  areaServed: 'Worldwide',
-  serviceType: ['ERP Systems', 'CRM', 'Business Automation', 'Digital Transformation'],
-};
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Home() {
+  const { content } = useLanguage();
+  const {
+    site,
+    meta,
+    hero,
+    home,
+    stats = [],
+    industries = [],
+    solutions = [],
+    featuredCaseStudies = [],
+    services = [],
+  } = content;
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: site.name,
+    description: site.description,
+    founder: { '@type': 'Person', name: site.name, jobTitle: site.role },
+    areaServed: 'Worldwide',
+    serviceType: ['ERP Systems', 'CRM', 'Business Automation', 'Digital Transformation'],
+  };
+
   return (
     <>
-      <PageMeta
-        title={`${siteConfig.name} — Enterprise Business Systems Engineer`}
-        description={siteConfig.description}
-      />
+      <PageMeta title={meta.home.title} description={meta.home.description} />
       <JsonLd data={schema} />
 
       <Hero
-        eyebrow={heroContent.eyebrow}
-        headline={heroContent.headline}
-        subtitle={heroContent.subtitle}
-        primaryCta={heroContent.primaryCta}
-        secondaryCta={heroContent.secondaryCta}
+        eyebrow={hero.eyebrow}
+        headline={hero.headline}
+        subtitle={hero.subtitle}
+        primaryCta={hero.primaryCta}
+        secondaryCta={hero.secondaryCta}
       />
 
       <section className="section section--tight">
         <div className="container">
           <SectionHeader
-            eyebrow="Track Record"
-            title="Built for Real Business Operations"
-            subtitle="Production-grade platforms deployed across manufacturing, commerce, and growing businesses."
+            eyebrow={home.trackRecord.eyebrow}
+            title={home.trackRecord.title}
+            subtitle={home.trackRecord.subtitle}
           />
           <div className="stats-grid">
-            {homeStats.map((s, i) => (
+            {stats.map((s, i) => (
               <StatCard key={s.label} {...s} index={i} />
             ))}
           </div>
@@ -59,9 +64,9 @@ export default function Home() {
       <section className="section section--alt">
         <div className="container">
           <SectionHeader
-            eyebrow="Industries"
-            title="Industries We Serve"
-            subtitle="Custom business systems engineered for the operational realities of each industry."
+            eyebrow={home.industries.eyebrow}
+            title={home.industries.title}
+            subtitle={home.industries.subtitle}
           />
           <IndustriesSection industries={industries} />
         </div>
@@ -70,9 +75,9 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <SectionHeader
-            eyebrow="Solutions"
-            title="Business Systems We Build"
-            subtitle="End-to-end platforms and modules that replace manual operations with scalable software."
+            eyebrow={home.solutions.eyebrow}
+            title={home.solutions.title}
+            subtitle={home.solutions.subtitle}
           />
           <SolutionsSection solutions={solutions} />
         </div>
@@ -81,9 +86,9 @@ export default function Home() {
       <section className="section section--alt">
         <div className="container">
           <SectionHeader
-            eyebrow="Case Studies"
-            title="Platforms in Production"
-            subtitle="Three business operating systems — enterprise, commerce, and starter ERP — each built for daily operational use."
+            eyebrow={home.caseStudies.eyebrow}
+            title={home.caseStudies.title}
+            subtitle={home.caseStudies.subtitle}
           />
           <div className="featured-case-studies">
             {featuredCaseStudies.map((study, i) => (
@@ -96,9 +101,9 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <SectionHeader
-            eyebrow="Services"
-            title="Full-Service Business Systems Engineering"
-            subtitle="From discovery and architecture to development, deployment, and continuous evolution."
+            eyebrow={home.services.eyebrow}
+            title={home.services.title}
+            subtitle={home.services.subtitle}
           />
           <div className="services-grid">
             {services.map((s, i) => (
@@ -108,10 +113,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CTASection
-        title="Ready to Transform Your Business Operations?"
-        subtitle="I work with CEOs, factory owners, and founders who need enterprise software — not another website."
-      />
+      <CTASection title={home.cta.title} subtitle={home.cta.subtitle} />
     </>
   );
 }

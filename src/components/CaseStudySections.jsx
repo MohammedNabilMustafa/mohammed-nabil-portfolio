@@ -1,16 +1,20 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 import SectionHeader from './SectionHeader';
 
 export function CaseStudyPageHero({ study, backPath = '/case-studies', theme = 'enterprise', children }) {
+  const { content } = useLanguage();
+  const backLabel = content.caseStudySections.backLink;
+
   return (
     <section className={`cs-hero cs-hero--${theme}`}>
       <div className="cs-hero__ambient" aria-hidden="true" />
       <div className="container">
         <Link to={backPath} className="back-link">
           <ArrowLeft size={15} />
-          All Case Studies
+          {backLabel}
         </Link>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +46,7 @@ export function ProseSection({ title, content, children, alt = false, eyebrow })
   );
 }
 
-export function ImpactList({ items, theme = 'default' }) {
+export function ImpactList({ items = [], theme = 'default' }) {
   return (
     <ul className={`impact-list impact-list--${theme}`}>
       {items.map((item) => (
@@ -55,7 +59,7 @@ export function ImpactList({ items, theme = 'default' }) {
   );
 }
 
-export function BulletList({ items }) {
+export function BulletList({ items = [] }) {
   return (
     <ul className="bullet-list">
       {items.map((item) => (

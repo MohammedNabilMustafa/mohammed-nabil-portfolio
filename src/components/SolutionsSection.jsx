@@ -1,12 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Database } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
-export default function SolutionsSection({ solutions }) {
+export default function SolutionsSection({ solutions = [] }) {
+  const { content } = useLanguage();
+  const { common } = content;
+
   return (
     <div className="solutions-grid">
       {solutions.map((item, i) => {
-        const Icon = item.icon;
+        const Icon = item.icon || Database;
         return (
           <motion.div
             key={item.title}
@@ -22,7 +26,7 @@ export default function SolutionsSection({ solutions }) {
         );
       })}
       <Link to="/services" className="solutions-link">
-        View All Services
+        {common.viewAllServices}
         <ArrowRight size={15} />
       </Link>
     </div>

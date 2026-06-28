@@ -3,47 +3,47 @@ import PageMeta from '../components/PageMeta';
 import Hero from '../components/Hero';
 import SectionHeader from '../components/SectionHeader';
 import CTASection from '../components/CTASection';
-import { aboutContent, siteConfig } from '../data/site';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function About() {
+  const { content } = useLanguage();
+  const { meta, about, aboutPage, hero, cta } = content;
+
   return (
     <>
-      <PageMeta
-        title={`About — ${siteConfig.name}`}
-        description="Business Systems Engineer who builds custom ERP, CRM, and enterprise platforms — focused on solving business problems, not writing code for its own sake."
-      />
+      <PageMeta title={meta.about.title} description={meta.about.description} />
 
       <Hero
-        eyebrow="About"
-        headline={aboutContent.headline}
-        subtitle={aboutContent.intro}
-        primaryCta={{ label: 'View Case Studies', path: '/case-studies' }}
-        secondaryCta={{ label: "Let's Talk", path: '/contact' }}
+        eyebrow={aboutPage.eyebrow}
+        headline={about.headline}
+        subtitle={about.intro}
+        primaryCta={hero.primaryCta}
+        secondaryCta={hero.secondaryCta}
         compact
         align="left"
       />
 
       <section className="section">
         <div className="container container--narrow">
-          <SectionHeader title="The Story" align="left" eyebrow="Philosophy" />
+          <SectionHeader title={aboutPage.storyTitle} align="left" eyebrow={aboutPage.storyEyebrow} />
           <div className="prose-stack">
-            {aboutContent.story.map((p) => (
+            {(about.story ?? []).map((p) => (
               <p key={p.slice(0, 48)} className="prose">{p}</p>
             ))}
           </div>
-          <p className="about-closing">{aboutContent.closing}</p>
+          <p className="about-closing">{about.closing}</p>
         </div>
       </section>
 
       <section className="section section--alt">
         <div className="container">
           <SectionHeader
-            eyebrow="Approach"
-            title="How I Think About Software"
-            subtitle="Business problems first. Architecture second. Code third."
+            eyebrow={aboutPage.approachEyebrow}
+            title={aboutPage.approachTitle}
+            subtitle={aboutPage.approachSubtitle}
           />
           <div className="approach-grid">
-            {aboutContent.approach.map((item, i) => (
+            {(about.approach ?? []).map((item, i) => (
               <motion.article
                 key={item.title}
                 className="approach-card"
@@ -61,10 +61,7 @@ export default function About() {
         </div>
       </section>
 
-      <CTASection
-        title="Let's Build the System Your Business Needs"
-        subtitle="I work with leaders who are ready to move beyond spreadsheets and disconnected tools."
-      />
+      <CTASection title={cta.aboutTitle} subtitle={cta.aboutSubtitle} />
     </>
   );
 }

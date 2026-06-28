@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export default function WorkflowTimeline({ steps, variant = 'default' }) {
+export default function WorkflowTimeline({ steps = [], variant = 'default' }) {
   return (
     <div className={`workflow workflow--${variant}`}>
       {steps.map((step, i) => (

@@ -1,10 +1,11 @@
+import { Database } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-export default function IndustriesSection({ industries }) {
+export default function IndustriesSection({ industries = [] }) {
   return (
     <div className="industries-grid">
       {industries.map((item, i) => {
-        const Icon = item.icon;
+        const Icon = item.icon || Database;
         return (
           <motion.article
             key={item.title}

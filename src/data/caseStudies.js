@@ -9,7 +9,7 @@ export const featuredCaseStudies = [
       'Enterprise ERP platform built for a printing and packaging manufacturer — unifying CRM, orders, manufacturing, inventory, finance, HR, transportation, AI, and executive dashboards into one operating system.',
     path: '/case-studies/ain-shams-press',
     variant: 'enterprise',
-    image: images.ainShamsDashboard,
+    image: images.ainShams.mainDashboard,
     imageAlt: 'Ain Shams Business Operating System — Ainshams AI Assistant dashboard',
     modules: ['CRM', 'Orders', 'Manufacturing', 'Inventory', 'Finance', 'HR', 'Transportation', 'AI', 'Dashboards'],
     metrics: [
@@ -153,14 +153,45 @@ export const ainShamsCaseStudy = {
     {
       title: 'Ainshams AI Assistant',
       description: 'Gemini-powered assistant for production, orders, clients, delivery & finance — in Arabic, Franco, or English',
-      src: images.ainShamsDashboard,
-      alt: 'Ain Shams Ainshams Assistant dashboard with sidebar navigation and AI command interface',
+      src: images.ainShams.mainDashboard,
+      alt: 'Ain Shams Ainshams AI Assistant dashboard with sidebar navigation and command interface',
     },
-    { title: 'CRM & Client Hub', description: 'Unified client records and complete order history' },
-    { title: 'Manufacturing Dashboard', description: 'Production planning and shop-floor job tracking' },
-    { title: 'Inventory & QR System', description: 'Product catalog with stock control and QR scanning' },
-    { title: 'Finance & Reporting', description: 'Invoicing, payments, and exportable financial reports' },
-    { title: 'Executive Command Center', description: 'Real-time KPIs across sales, production, and operations' },
+    {
+      title: 'Sales Dashboard',
+      description: 'Pipeline view with leads, quotations, and sales performance tracking',
+      src: images.ainShams.salesDashboard,
+      alt: 'Ain Shams sales dashboard with pipeline columns and lead cards',
+    },
+    {
+      title: 'CRM & Client Hub',
+      description: 'Unified client records and complete order history',
+      src: images.ainShams.crmClientHub,
+      alt: 'Ain Shams CRM and client hub interface',
+    },
+    {
+      title: 'Manufacturing Dashboard',
+      description: 'Production planning and shop-floor job tracking',
+      src: images.ainShams.manufacturingDashboard,
+      alt: 'Ain Shams manufacturing dashboard',
+    },
+    {
+      title: 'Inventory & QR System',
+      description: 'Product catalog with stock control and QR scanning',
+      src: images.ainShams.inventoryQrSystem,
+      alt: 'Ain Shams inventory and QR tracking system',
+    },
+    {
+      title: 'Finance & Reporting',
+      description: 'Invoicing, payments, and exportable financial reports',
+      src: images.ainShams.financeReporting,
+      alt: 'Ain Shams finance and reporting module',
+    },
+    {
+      title: 'Executive Command Center',
+      description: 'Real-time KPIs across sales, production, and operations',
+      src: images.ainShams.executiveCommandCenter,
+      alt: 'Ain Shams executive command center dashboard',
+    },
   ],
 };
 

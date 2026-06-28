@@ -13,20 +13,19 @@ import {
   ImpactList,
   BulletList,
 } from '../components/CaseStudySections';
-import { siteConfig } from '../data/site';
+import { useLanguage } from '../i18n/LanguageContext';
 import { images } from '../data/assets';
-import { ainShamsCaseStudy, featuredCaseStudies } from '../data/caseStudies';
 
 export default function AinShamsCaseStudy() {
-  const study = ainShamsCaseStudy;
-  const metrics = featuredCaseStudies[0].metrics;
+  const { content } = useLanguage();
+  const { meta, caseStudiesDetail, featuredCaseStudies, caseStudySections: cs } = content;
+  const study = caseStudiesDetail.ainShams;
+  const metrics = featuredCaseStudies.find((s) => s.slug === 'ain-shams-press')?.metrics || [];
+  const cta = cs.ctaAinShams;
 
   return (
     <>
-      <PageMeta
-        title={`${study.title} — Case Study | ${siteConfig.name}`}
-        description="Enterprise ERP platform for a printing and packaging manufacturer — 15+ modules, 50+ users, 90% operations digitized over 3 years."
-      />
+      <PageMeta title={meta.ainShams.title} description={meta.ainShams.description} />
 
       <CaseStudyPageHero study={study} theme="enterprise">
         <p className="cs-hero__summary">{study.overview}</p>
@@ -35,10 +34,10 @@ export default function AinShamsCaseStudy() {
       <section className="section section--tight">
         <div className="container">
           <Screenshot
-            src={images.ainShamsDashboard}
-            alt="Ain Shams Ainshams Assistant — AI-powered business operating system dashboard"
+            src={images.ainShams.mainDashboard}
+            alt="Ain Shams Ainshams AI Assistant — system search, quick actions, and command interface"
             title="Ainshams AI Assistant"
-            description="Production, orders, clients, delivery & finance — powered by Google Gemini AI"
+            description={cs.aiAssistantCaption}
             variant="enterprise"
             large
           />
@@ -61,65 +60,65 @@ export default function AinShamsCaseStudy() {
         </div>
       </section>
 
-      <ProseSection title="Overview" content={study.overview} eyebrow="Case Study" />
+      <ProseSection title={cs.overview} content={study.overview} eyebrow={cs.caseStudy} />
 
-      <ProseSection title="Business Challenge" alt eyebrow="Problem">
+      <ProseSection title={cs.challenge} alt eyebrow={cs.problem}>
         <BulletList items={study.challenge} />
       </ProseSection>
 
-      <ProseSection title="Solution" content={study.solution} eyebrow="Approach" />
+      <ProseSection title={cs.solution} content={study.solution} eyebrow={cs.approach} />
 
       <section className="section section--alt">
         <div className="container">
-          <SectionHeader eyebrow="Platform" title="Core Modules" subtitle="15+ integrated modules covering every department — designed around real workflows." align="left" />
+          <SectionHeader eyebrow={cs.platform} title={cs.coreModules} subtitle={cs.modulesAinShams} align="left" />
           <ModuleGrid modules={study.coreModules} variant="enterprise" />
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <SectionHeader eyebrow="Operations" title="Manufacturing Workflow" subtitle="How orders move from intake through production, delivery, and finance." />
+          <SectionHeader eyebrow={cs.operations} title={cs.manufacturingWorkflow} subtitle={cs.workflowAinShams} />
           <WorkflowTimeline steps={study.manufacturingWorkflow} variant="enterprise" />
         </div>
       </section>
 
       <section className="section section--alt">
         <div className="container">
-          <SectionHeader eyebrow="Engineering" title="System Architecture" subtitle="Layered architecture built for reliability, scalability, and multi-department operations." align="left" />
+          <SectionHeader eyebrow={cs.engineering} title={cs.architecture} subtitle={cs.archAinShams} align="left" />
           <ArchitectureSection layers={study.architecture} variant="enterprise" />
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <SectionHeader eyebrow="Stack" title="Technology Stack" align="left" />
+          <SectionHeader eyebrow={cs.stack} title={cs.techStack} align="left" />
           <div className="tech-row">
-            {study.technologyStack.map((t) => (
+            {(study.technologyStack ?? []).map((t) => (
               <span key={t} className="chip">{t}</span>
             ))}
           </div>
         </div>
       </section>
 
-      <ProseSection title="Business Impact" alt eyebrow="Outcomes">
+      <ProseSection title={cs.businessImpact} alt eyebrow={cs.outcomes}>
         <ImpactList items={study.businessImpact} theme="enterprise" />
       </ProseSection>
 
       <section className="section">
         <div className="container">
-          <SectionHeader eyebrow="Platform" title="Gallery" subtitle="Screenshot placeholders — replace with actual platform captures." />
+          <SectionHeader eyebrow={cs.platform} title={cs.gallery} subtitle={cs.gallerySubtitle} />
           <GalleryGrid items={study.gallery} variant="enterprise" />
         </div>
       </section>
 
-      <ProseSection title="Results" alt eyebrow="Summary">
+      <ProseSection title={cs.results} alt eyebrow={cs.summary}>
         <ImpactList items={study.results} theme="enterprise" />
       </ProseSection>
 
       <CTASection
-        title="Want a Business Operating System for Your Company?"
-        subtitle="I design and build custom ERP, CRM, and manufacturing platforms for companies ready to replace manual operations."
-        secondaryLabel="View All Case Studies"
+        title={cta.title}
+        subtitle={cta.subtitle}
+        secondaryLabel={cta.secondary}
         secondaryPath="/case-studies"
       />
     </>

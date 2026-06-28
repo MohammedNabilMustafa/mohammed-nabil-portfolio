@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Mail } from 'lucide-react';
-import { navLinks, siteConfig } from '../data/site';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Footer() {
+  const { content } = useLanguage();
+  const { navLinks = [], site, common, footerCaseStudies = {} } = content;
   const year = new Date().getFullYear();
 
   return (
@@ -12,15 +14,15 @@ export default function Footer() {
           <Link to="/" className="footer__logo">
             <span className="navbar__mark">MN</span>
             <div>
-              <strong>{siteConfig.name}</strong>
-              <span>{siteConfig.role}</span>
+              <strong>{site.name}</strong>
+              <span>{site.role}</span>
             </div>
           </Link>
-          <p>{siteConfig.description}</p>
+          <p>{site.description}</p>
         </div>
 
         <div className="footer__col">
-          <h4>Navigate</h4>
+          <h4>{common.footer.navigate}</h4>
           <ul>
             {navLinks.map((l) => (
               <li key={l.path}><Link to={l.path}>{l.label}</Link></li>
@@ -29,29 +31,29 @@ export default function Footer() {
         </div>
 
         <div className="footer__col">
-          <h4>Case Studies</h4>
+          <h4>{common.footer.caseStudies}</h4>
           <ul>
-            <li><Link to="/case-studies/ain-shams-press">Ain Shams ERP</Link></li>
-            <li><Link to="/case-studies/minsal-commerce-os">Minsal Commerce OS</Link></li>
-            <li><Link to="/case-studies/elite-erp">Elite ERP</Link></li>
+            <li><Link to="/case-studies/ain-shams-press">{footerCaseStudies.ainShams}</Link></li>
+            <li><Link to="/case-studies/minsal-commerce-os">{footerCaseStudies.minsal}</Link></li>
+            <li><Link to="/case-studies/elite-erp">{footerCaseStudies.elite}</Link></li>
           </ul>
         </div>
 
         <div className="footer__col">
-          <h4>Contact</h4>
-          <a href={`mailto:${siteConfig.email}`} className="footer__email">
+          <h4>{common.footer.contact}</h4>
+          <a href={`mailto:${site.email}`} className="footer__email">
             <Mail size={15} />
-            {siteConfig.email}
+            {site.email}
           </a>
           <Link to="/contact" className="footer__link-cta">
-            Let&apos;s Talk <ArrowUpRight size={14} />
+            {common.letsTalk} <ArrowUpRight size={14} />
           </Link>
         </div>
       </div>
 
       <div className="container footer__bottom">
-        <p>&copy; {year} {siteConfig.name}. All rights reserved.</p>
-        <p>Enterprise Business Systems Engineering</p>
+        <p>&copy; {year} {site.name}. {common.footer.rights}</p>
+        <p>{common.footer.tagline}</p>
       </div>
     </footer>
   );

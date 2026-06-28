@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export default function ArchitectureSection({ layers, variant = 'default' }) {
+export default function ArchitectureSection({ layers = [], variant = 'default' }) {
   return (
     <div className={`architecture architecture--${variant}`}>
       {layers.map((layer, i) => (
@@ -14,7 +14,7 @@ export default function ArchitectureSection({ layers, variant = 'default' }) {
         >
           <div className="architecture__label">{layer.layer}</div>
           <div className="architecture__items">
-            {layer.items.map((item) => (
+            {(layer.items ?? []).map((item) => (
               <span key={item} className="chip chip--muted">{item}</span>
             ))}
           </div>
