@@ -1,14 +1,14 @@
 export const siteConfig = {
   name: 'Mohammed Nabil',
-  role: 'Business Systems Engineer',
-  tagline: 'Enterprise Business Systems',
+  role: 'Enterprise Software Engineer',
+  tagline: 'Enterprise Platform Architecture',
   description:
-    'Mohammed Nabil designs and develops custom ERP, CRM, Finance, Inventory, Manufacturing, AI and Business Automation platforms for manufacturing and growing companies.',
+    'Mohammed Nabil designs and builds scalable enterprise platforms — ERP, LMS, CRM, commerce, finance, manufacturing, and AI business systems.',
   email: 'hello@mohammednabil.dev',
-  phone: '+20 100 000 0000',
-  whatsapp: '201000000000',
+  phone: '+20 102 771 3442',
+  whatsapp: '201027713442',
   location: 'Egypt · Remote Worldwide',
-  linkedin: 'https://linkedin.com/in/mohammed-nabil',
+  linkedin: 'https://www.linkedin.com/in/mohammed-nabil-mustafa/',
   github: 'https://github.com/mohammed-nabil',
 };
 

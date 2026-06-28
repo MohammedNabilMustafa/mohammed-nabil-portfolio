@@ -33,6 +33,7 @@ export default function Footer() {
         <div className="footer__col">
           <h4>{common.footer.caseStudies}</h4>
           <ul>
+            <li><Link to="/case-studies/ischool-lms">{footerCaseStudies.ischool}</Link></li>
             <li><Link to="/case-studies/ain-shams-press">{footerCaseStudies.ainShams}</Link></li>
             <li><Link to="/case-studies/minsal-commerce-os">{footerCaseStudies.minsal}</Link></li>
             <li><Link to="/case-studies/elite-erp">{footerCaseStudies.elite}</Link></li>

@@ -8,6 +8,7 @@ export default function Hero({
   subtitle,
   primaryCta,
   secondaryCta,
+  stats = [],
   compact = false,
   align = 'center',
 }) {
@@ -64,6 +65,22 @@ export default function Hero({
                 {secondaryCta.label}
               </Link>
             )}
+          </motion.div>
+        )}
+
+        {stats.length > 0 && (
+          <motion.div
+            className="hero__stats"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.28 }}
+          >
+            {stats.map((stat) => (
+              <div key={stat.label} className="hero-stat">
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </div>
+            ))}
           </motion.div>
         )}
       </div>

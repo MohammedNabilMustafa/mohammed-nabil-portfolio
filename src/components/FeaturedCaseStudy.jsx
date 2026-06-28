@@ -11,6 +11,7 @@ export default function FeaturedCaseStudy({ study, index = 0, reversed = false }
 
   const linkClass = {
     enterprise: '',
+    education: ' featured-case-study__link--education',
     commerce: ' featured-case-study__link--warm',
     starter: ' featured-case-study__link--starter',
   }[study.variant] || '';

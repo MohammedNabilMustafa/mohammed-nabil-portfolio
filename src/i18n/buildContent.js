@@ -7,15 +7,18 @@ import {
   ainShamsCaseStudy,
   minsalCaseStudy,
   eliteErpCaseStudy,
+  ischoolCaseStudy,
 } from '../data/caseStudies';
 
 const CASE_STUDY_KEYS = {
+  'ischool-lms': 'ischool',
   'ain-shams-press': 'ainShams',
   'minsal-commerce-os': 'minsal',
   'elite-erp': 'elite',
 };
 
 const EN_DETAIL = {
+  ischool: ischoolCaseStudy,
   ainShams: ainShamsCaseStudy,
   minsal: minsalCaseStudy,
   elite: eliteErpCaseStudy,
@@ -40,10 +43,13 @@ function mergeCaseStudyDetail(enStudy, arStudy) {
     challenge: arStudy.challenge ?? enStudy.challenge ?? [],
     coreModules: arStudy.coreModules ?? enStudy.coreModules ?? [],
     manufacturingWorkflow: arStudy.manufacturingWorkflow ?? enStudy.manufacturingWorkflow ?? [],
+    educationWorkflow: arStudy.educationWorkflow ?? enStudy.educationWorkflow ?? [],
     supplyChainFlow: arStudy.supplyChainFlow ?? enStudy.supplyChainFlow ?? [],
+    platformScale: arStudy.platformScale ?? enStudy.platformScale ?? [],
     architecture: arStudy.architecture ?? enStudy.architecture ?? [],
     technologyStack: arStudy.technologyStack ?? enStudy.technologyStack ?? [],
     businessImpact: arStudy.businessImpact ?? enStudy.businessImpact ?? [],
+    lessonsLearned: arStudy.lessonsLearned ?? enStudy.lessonsLearned ?? [],
     results: arStudy.results ?? enStudy.results ?? [],
     gallery: mergeGallery(enStudy.gallery, arStudy.gallery),
   };
@@ -168,9 +174,8 @@ function buildContactChannels(raw, lang) {
   const c = raw.contactChannels;
   return [
     { label: c.email.label, value: c.email.value },
-    { label: c.phone.label, value: c.phone.value },
-    { label: c.whatsapp.label, value: c.whatsapp.value },
     { label: c.linkedin.label, value: c.linkedin.value },
+    { label: c.whatsapp.label, value: c.whatsapp.value },
     { label: c.github.label, value: c.github.value },
   ];
 }
@@ -238,6 +243,10 @@ export function buildContent(lang, rawAr) {
   });
 
   const caseStudiesDetail = {
+    ischool: mergeCaseStudyDetail(
+      EN_DETAIL.ischool,
+      lang === 'ar' ? raw.caseStudies?.ischool : en.caseStudies.ischool
+    ),
     ainShams: mergeCaseStudyDetail(
       EN_DETAIL.ainShams,
       lang === 'ar' ? raw.caseStudies.ainShams : en.caseStudies.ainShams
@@ -329,6 +338,8 @@ export function buildContent(lang, rawAr) {
     industries,
     solutions,
     services,
+    techStack: lang === 'ar' ? (raw.techStack ?? en.techStack ?? []) : (raw.techStack ?? []),
+    whyWorkWithMe: lang === 'ar' ? (raw.whyWorkWithMe ?? en.whyWorkWithMe ?? []) : (raw.whyWorkWithMe ?? []),
     servicesPage,
     caseStudiesPage: raw.caseStudiesPage,
     featuredCaseStudies,

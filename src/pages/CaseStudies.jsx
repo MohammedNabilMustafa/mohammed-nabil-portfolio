@@ -17,7 +17,7 @@ export default function CaseStudies() {
         headline={caseStudiesPage.hero.headline}
         subtitle={caseStudiesPage.hero.subtitle}
         primaryCta={{ label: caseStudiesPage.hero.primaryCta, path: '/case-studies/ain-shams-press' }}
-        secondaryCta={{ label: caseStudiesPage.hero.secondaryCta, path: '/case-studies/minsal-commerce-os' }}
+        secondaryCta={{ label: caseStudiesPage.hero.secondaryCta, path: '/case-studies/ischool-lms' }}
         compact
       />
 

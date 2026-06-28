@@ -24,6 +24,23 @@ export const featuredCaseStudies = [
     tech: ['React', 'Firebase', 'Firestore', 'Cloud Functions', 'PrimeReact', 'Gemini AI', 'Chart.js', 'QR', 'PDF'],
   },
   {
+    slug: 'ischool-lms',
+    title: 'iSchool Learning Management System',
+    subtitle: 'Education Platform / LMS',
+    description:
+      'A complete learning management and operations platform built and evolved over 4 years — managing thousands of students, hundreds of instructors, daily live sessions, payments, exams, and support.',
+    path: '/case-studies/ischool-lms',
+    variant: 'education',
+    modules: ['Student Portal', 'Instructor Portal', 'Live Sessions', 'Scheduling', 'Payments', 'Exams', 'CRM', 'Support'],
+    metrics: [
+      { label: 'Students Supported', value: '10,000+' },
+      { label: 'Live Sessions / Day', value: '400+' },
+      { label: 'Instructors', value: '200+' },
+      { label: 'Years of Development', value: '4' },
+    ],
+    tech: ['React', 'Wix', 'LMS', 'Live Sessions', 'Payments', 'CRM'],
+  },
+  {
     slug: 'minsal-commerce-os',
     title: 'Minsal Commerce OS',
     subtitle: 'Commerce + Business Operating System',
@@ -31,11 +48,16 @@ export const featuredCaseStudies = [
       'A complete commerce and business operating system for a fashion brand — combining a customer storefront with admin operations for products, orders, CRM, supply chain, and finance.',
     path: '/case-studies/minsal-commerce-os',
     variant: 'commerce',
+    image: images.minsal.storefront,
+    imageAlt: 'Minsal Commerce OS — customer-facing e-commerce storefront',
     modules: ['E-commerce Storefront', 'Product Management', 'Orders', 'CRM', 'Supply Chain', 'Finance', 'Command Center'],
     metrics: [
-      { label: 'Orders', value: '300+' },
+      { label: 'Orders Managed', value: '300+' },
       { label: 'Products', value: '500+' },
       { label: 'Active Clients', value: '2,000+' },
+      { label: 'TypeScript Files', value: '305+' },
+      { label: 'Routes', value: '81' },
+      { label: 'React Components', value: '135' },
     ],
     tech: ['Next.js', 'React', 'TypeScript', 'Firebase', 'Tailwind', 'Zustand', 'Zod', 'React Hook Form'],
   },
@@ -49,12 +71,12 @@ export const featuredCaseStudies = [
     variant: 'starter',
     modules: ['CRM', 'Orders', 'Inventory', 'Finance', 'Dashboards', 'User Management'],
     metrics: [
-      { label: 'Core Modules', value: '5' },
+      { label: 'Core Modules', value: '10+' },
       { label: 'Target Market', value: 'SMB' },
-      { label: 'Deployment', value: 'Cloud' },
+      { label: 'Stack', value: 'React + Firebase' },
       { label: 'Architecture', value: 'Modular' },
     ],
-    tech: ['React', 'Firebase', 'Firestore', 'Cloud Functions', 'Responsive UI'],
+    tech: ['React 18', 'React Router 6', 'Firebase Auth', 'Firestore', 'Custom CSS'],
   },
 ];
 
@@ -70,7 +92,9 @@ export const caseStudies = featuredCaseStudies.map((study) => ({
   image: study.image,
   imageAlt: study.imageAlt,
   tags:
-    study.variant === 'enterprise'
+    study.variant === 'education'
+      ? ['LMS', 'Education', 'Live Sessions', 'React']
+      : study.variant === 'enterprise'
       ? ['ERP', 'Manufacturing', 'Firebase', 'AI']
       : study.variant === 'commerce'
         ? ['E-commerce', 'Next.js', 'TypeScript', 'Firebase']
@@ -264,12 +288,42 @@ export const minsalCaseStudy = {
   ],
 
   gallery: [
-    { title: 'E-commerce Storefront', description: 'Premium customer shopping experience' },
-    { title: 'Command Center Dashboard', description: 'Executive overview of all business metrics' },
-    { title: 'Product Management', description: 'Full catalog and merchandising control' },
-    { title: 'Orders & Fulfillment', description: 'End-to-end order lifecycle management' },
-    { title: 'CRM & Clients', description: 'Customer profiles and purchase history' },
-    { title: 'Supply Chain Hub', description: 'Sourcing, stock, and fulfillment orchestration' },
+    {
+      title: 'E-commerce Storefront',
+      description: 'Premium customer shopping experience with collections, cart, and checkout',
+      src: images.minsal.storefront,
+      alt: 'Minsal e-commerce storefront homepage with hero and new arrivals',
+    },
+    {
+      title: 'Command Center Dashboard',
+      description: 'Executive overview of sales, profit, cash, orders, and inventory health',
+      src: images.minsal.commandCenter,
+      alt: 'Minsal Business OS command center dashboard',
+    },
+    {
+      title: 'Product Management',
+      description: 'Full catalog and merchandising control with variants and stock',
+      src: images.minsal.products,
+      alt: 'Minsal admin products catalog management',
+    },
+    {
+      title: 'Orders & Fulfillment',
+      description: 'End-to-end order lifecycle management with payments and profit tracking',
+      src: images.minsal.orders,
+      alt: 'Minsal orders management dashboard',
+    },
+    {
+      title: 'CRM & Clients',
+      description: 'Customer profiles, lifetime value, and purchase history',
+      src: images.minsal.crmClients,
+      alt: 'Minsal CRM clients module',
+    },
+    {
+      title: 'Supply Chain Hub',
+      description: 'Raw materials, production, and inventory orchestration',
+      src: images.minsal.supplyChain,
+      alt: 'Minsal raw materials and supply chain inventory',
+    },
   ],
 };
 
@@ -277,44 +331,48 @@ export const eliteErpCaseStudy = {
   slug: 'elite-erp',
   title: 'Elite ERP',
   client: 'Small & Medium Businesses',
-  industry: 'Business Services / General SMB',
+  industry: 'Business Management / SMB',
   duration: 'Starter business management platform',
 
   overview:
-    'Not every business needs a full-scale enterprise operating system on day one. Elite ERP is a lightweight business management platform designed for small and medium businesses that need structured CRM, orders, inventory, finance, and reporting — without the complexity, cost, and timeline of a full ERP rollout.',
+    'Elite ERP unifies clients, suppliers, materials, safes, inventory movements, and financial transactions into one responsive web dashboard for small and medium businesses. It is a lightweight starter platform for companies that need structured business management without the complexity of a full enterprise ERP rollout.',
 
   challenge: [
     'Small businesses often outgrow spreadsheets but cannot justify a full enterprise ERP implementation.',
-    'CRM, orders, inventory, and finance live in separate tools with no shared data.',
-    'Owners lack a single dashboard to understand sales, stock, and cash flow.',
+    'Clients, suppliers, stock, cash, and finance live in separate tools with no shared data.',
+    'Owners lack a single dashboard to understand sales, stock, and cash flow across safes and accounts.',
     'Teams need role-based access without enterprise-level administration overhead.',
-    'Businesses want a platform that can start simple and expand as they grow.',
+    'Businesses want a platform that can start focused and expand with reports, approvals, and audit logs over time.',
   ],
 
   solution:
-    'I designed Elite ERP as a modular starter platform — five core business modules on a cloud-native React and Firebase stack. It delivers the essential operating system capabilities SMBs need: client management, order tracking, inventory control, financial visibility, and executive dashboards — in a focused, maintainable package.',
+    'I designed Elite ERP as a modular starter platform on React 18 and Firebase — delivering essential business management capabilities: client and supplier management, materials and stock movements, safe/cash tracking, finance, assets, and executive dashboards in a focused, maintainable package.',
 
   coreModules: [
-    { name: 'CRM & Clients', description: 'Client records, communication history, and relationship tracking in one place.' },
-    { name: 'Order Management', description: 'Create, track, and fulfill orders with clear status visibility from intake to completion.' },
-    { name: 'Inventory Control', description: 'Product catalog, stock levels, and basic warehouse visibility for growing operations.' },
-    { name: 'Finance & Invoicing', description: 'Invoicing, payment tracking, and essential financial reporting for business owners.' },
-    { name: 'Executive Dashboard', description: 'At-a-glance view of sales, orders, inventory, and financial performance.' },
-    { name: 'User Management', description: 'Role-based access so each team member sees only what they need.' },
+    { name: 'Dashboard', description: 'Executive overview of clients, stock, cash, and financial performance.' },
+    { name: 'Users & Auth', description: 'Role-based access with secure authentication for each team member.' },
+    { name: 'Clients', description: 'Client records, communication history, and relationship tracking.' },
+    { name: 'Merchants / Suppliers', description: 'Supplier and merchant management tied to purchasing and stock.' },
+    { name: 'Materials', description: 'Product and material catalog with cost and stock visibility.' },
+    { name: 'Safes', description: 'Cash, bank, and wallet safe management across accounts.' },
+    { name: 'Finance', description: 'Financial transactions, reconciliation, and essential reporting.' },
+    { name: 'Stock Movements', description: 'Inbound and outbound stock tracking with movement history.' },
+    { name: 'Assets', description: 'Business asset registration and tracking for growing operations.' },
+    { name: 'Roadmap Modules', description: 'Planned expansion: reports, approvals, and audit logs.' },
   ],
 
   architecture: [
-    { layer: 'Frontend', items: ['React SPA', 'Responsive UI', 'Role-Based Views', 'Dashboard Widgets'] },
-    { layer: 'Business Logic', items: ['CRM Engine', 'Order Workflows', 'Inventory Sync', 'Finance Module'] },
-    { layer: 'Backend', items: ['Firebase Auth', 'Firestore Database', 'Cloud Functions', 'Real-time Updates'] },
+    { layer: 'Frontend', items: ['React 18', 'React Router 6', 'Responsive UI', 'Role-Based Views'] },
+    { layer: 'Business Logic', items: ['Clients Engine', 'Stock Movements', 'Safes & Finance', 'Supplier Management'] },
+    { layer: 'Backend', items: ['Firebase Auth', 'Cloud Firestore', 'Real-time Updates', 'Secure Data'] },
     { layer: 'Deployment', items: ['Cloud Hosted', 'Modular Architecture', 'SMB-Optimized', 'Scalable Foundation'] },
   ],
 
-  technologyStack: ['React', 'Firebase', 'Firestore', 'Cloud Functions', 'JavaScript', 'Responsive UI', 'Role-Based Access'],
+  technologyStack: ['React 18', 'React Router 6', 'Firebase Auth', 'Cloud Firestore', 'Custom CSS', 'Role-Based Access'],
 
   businessImpact: [
     'Replaces spreadsheets and disconnected tools with a unified starter business platform.',
-    'Five core modules cover the essential workflows most SMBs need from day one.',
+    'Ten core modules cover the essential workflows most SMBs need from day one.',
     'Cloud-native architecture keeps deployment and maintenance costs manageable.',
     'Modular design allows businesses to start focused and expand over time.',
     'Executive dashboard gives owners real-time visibility without enterprise complexity.',
@@ -329,12 +387,112 @@ export const eliteErpCaseStudy = {
 
   gallery: [
     { title: 'Executive Dashboard', description: 'At-a-glance business performance overview' },
-    { title: 'CRM & Clients', description: 'Client management and relationship tracking' },
-    { title: 'Order Management', description: 'Order creation, tracking, and fulfillment' },
-    { title: 'Inventory Control', description: 'Product catalog and stock management' },
-    { title: 'Finance Module', description: 'Invoicing, payments, and financial reporting' },
+    { title: 'Clients & Suppliers', description: 'Client and merchant management' },
+    { title: 'Materials & Stock', description: 'Material catalog and stock movements' },
+    { title: 'Safes & Finance', description: 'Cash management and financial transactions' },
+    { title: 'Assets Module', description: 'Business asset tracking and management' },
   ],
 };
 
 // Backward-compatible export
 export const featuredProjects = featuredCaseStudies;
+
+export const ischoolCaseStudy = {
+  slug: 'ischool-lms',
+  title: 'iSchool Learning Management System',
+  client: 'iSchool',
+  industry: 'Education / LMS',
+  duration: '4 years of continuous platform development',
+
+  overview:
+    'iSchool is a learning management and operations platform designed to manage the full education lifecycle — from student enrollment and live sessions to exams, payments, attendance, curriculum, and support. I designed and built the platform during my involvement, starting on Wix and later rebuilding core systems with React as the organization scaled to thousands of students and hundreds of instructors.',
+
+  challenge: [
+    'Education operations were fragmented across spreadsheets, messaging tools, and disconnected admin workflows.',
+    'Scheduling hundreds of daily live sessions across students, instructors, and classrooms required centralized coordination.',
+    'Payments, attendance, exams, and curriculum needed to live in one system — not separate tools.',
+    'Support, leads, and CRM workflows lacked a unified view of student and prospect relationships.',
+    'The platform needed to scale from early-stage operations to thousands of active students without breaking workflows.',
+    'Instructors, students, and admin teams each needed role-specific portals with clear permissions.',
+  ],
+
+  solution:
+    'I architected and developed a modular LMS platform spanning student and instructor portals, admin dashboards, live session management, scheduling, payments, exams, attendance, curriculum, feedback, CRM, support, notifications, and reporting. The platform evolved over four years — from early Wix-based workflows to a React-powered system designed for scale.',
+
+  coreModules: [
+    { name: 'Student Portal', description: 'Enrollment, course access, session attendance, exams, and progress tracking for students.' },
+    { name: 'Instructor Portal', description: 'Session management, class coordination, and teaching workflows for instructors.' },
+    { name: 'Admin Dashboard', description: 'Central command center for operations, users, scheduling, and platform oversight.' },
+    { name: 'Live Sessions', description: 'Daily live class management supporting 400+ sessions per day at peak scale.' },
+    { name: 'Scheduling System', description: 'Coordinated scheduling across students, instructors, rooms, and session types.' },
+    { name: 'Payments', description: 'Tuition and payment tracking integrated with enrollment and student records.' },
+    { name: 'Exams & Quizzes', description: 'Assessment workflows, grading visibility, and academic progress tracking.' },
+    { name: 'Attendance', description: 'Session attendance capture and reporting across students and classes.' },
+    { name: 'Curriculum Management', description: 'Structured curriculum, content organization, and academic pathway management.' },
+    { name: 'Feedback System', description: 'Student and instructor feedback loops tied to sessions and courses.' },
+    { name: 'Leads / CRM', description: 'Prospect tracking, enrollment pipeline, and relationship management.' },
+    { name: 'Support System', description: 'Student and parent support tickets, communication, and resolution tracking.' },
+    { name: 'Notifications', description: 'Automated alerts for sessions, payments, exams, and operational updates.' },
+    { name: 'Reports', description: 'Operational and academic reporting for management and department leads.' },
+  ],
+
+  platformScale: [
+    { label: 'Students Supported', value: '10,000+', description: 'During platform involvement' },
+    { label: 'Instructors', value: '200+', description: 'Active teaching staff on platform' },
+    { label: 'Employees', value: '100+', description: 'Operations and admin teams' },
+    { label: 'Live Sessions / Day', value: '400+', description: 'Peak daily session volume' },
+    { label: 'Development Timeline', value: '4 Years', description: 'Continuous platform evolution' },
+    { label: 'Post-Involvement Scale', value: 'Continued', description: 'Company scaled platform further after my work' },
+  ],
+
+  educationWorkflow: [
+    { step: '01', title: 'Enrollment & Onboarding', description: 'Students register, get assigned to programs, and access their portal.' },
+    { step: '02', title: 'Scheduling', description: 'Sessions, instructors, and classrooms coordinated in the scheduling system.' },
+    { step: '03', title: 'Live Sessions', description: 'Daily live classes delivered and tracked through the LMS.' },
+    { step: '04', title: 'Assessments', description: 'Exams, quizzes, and attendance recorded against student progress.' },
+    { step: '05', title: 'Payments', description: 'Tuition and payment status synced with enrollment records.' },
+    { step: '06', title: 'Support & Feedback', description: 'Issues resolved and feedback collected through integrated support workflows.' },
+  ],
+
+  architecture: [
+    { layer: 'Portals', items: ['Student Portal', 'Instructor Portal', 'Admin Dashboard', 'Role-Based Access'] },
+    { layer: 'Education Ops', items: ['Live Sessions', 'Scheduling', 'Exams', 'Attendance', 'Curriculum'] },
+    { layer: 'Business Ops', items: ['Payments', 'CRM / Leads', 'Support', 'Notifications', 'Reports'] },
+    { layer: 'Engineering', items: ['React', 'Wix (Early Stage)', 'Modular Architecture', 'Continuous Evolution'] },
+  ],
+
+  technologyStack: ['React', 'Wix', 'LMS Architecture', 'Live Session Management', 'Scheduling', 'Payments', 'CRM', 'Notifications'],
+
+  businessImpact: [
+    'Helped digitize and centralize education operations across students, instructors, and admin teams.',
+    'Supported 10,000+ students during platform involvement with structured enrollment and session workflows.',
+    'Enabled 400+ daily live sessions to be coordinated through a single scheduling and delivery system.',
+    'Unified payments, exams, attendance, curriculum, and support into one operational platform.',
+    'Reduced manual coordination between academic, operations, and support departments.',
+    'Built a foundation the company continued scaling after my involvement.',
+  ],
+
+  lessonsLearned: [
+    'Education platforms require workflow-first design — academic operations drive the architecture, not UI trends.',
+    'Scaling from Wix to React taught the importance of planning module boundaries early.',
+    'Live session scheduling at 400+ sessions/day demands robust admin tooling and clear role separation.',
+    'LMS platforms succeed when students, instructors, and operations teams each have purpose-built portals.',
+    'Continuous iteration over 4 years beats big-bang releases for education operations software.',
+  ],
+
+  results: [
+    'Delivered a production LMS used daily across students, instructors, and operations teams.',
+    'Centralized education workflows that previously lived in disconnected tools and manual processes.',
+    'Created a scalable platform architecture that supported significant growth during and after involvement.',
+    'Demonstrated that enterprise-grade education software requires the same systems thinking as ERP platforms.',
+  ],
+
+  gallery: [
+    { title: 'Student Portal', description: 'Student enrollment, courses, and session access' },
+    { title: 'Instructor Portal', description: 'Class management and teaching workflows' },
+    { title: 'Admin Dashboard', description: 'Operations command center for education teams' },
+    { title: 'Live Sessions', description: 'Daily live class scheduling and delivery' },
+    { title: 'Exams & Attendance', description: 'Assessment and attendance tracking' },
+    { title: 'Payments & CRM', description: 'Tuition, leads, and enrollment pipeline' },
+  ],
+};

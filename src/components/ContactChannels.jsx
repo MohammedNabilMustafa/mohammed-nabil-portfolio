@@ -1,16 +1,29 @@
-import { Briefcase, Code2, Mail, MessageCircle, Phone } from 'lucide-react';
+import { Briefcase, Code2, Mail, MessageCircle } from 'lucide-react';
 import { siteConfig } from '../data/site';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const icons = [Mail, Phone, MessageCircle, Briefcase, Code2];
-const hrefs = [
-  `mailto:${siteConfig.email}`,
-  `tel:${siteConfig.phone.replace(/\s/g, '')}`,
-  `https://wa.me/${siteConfig.whatsapp}`,
-  siteConfig.linkedin,
-  siteConfig.github,
-];
-const external = [false, false, true, true, true];
+const CHANNEL_META = {
+  Email: {
+    icon: Mail,
+    href: `mailto:${siteConfig.email}`,
+    external: false,
+  },
+  LinkedIn: {
+    icon: Briefcase,
+    href: siteConfig.linkedin,
+    external: true,
+  },
+  WhatsApp: {
+    icon: MessageCircle,
+    href: `https://wa.me/${siteConfig.whatsapp}`,
+    external: true,
+  },
+  GitHub: {
+    icon: Code2,
+    href: siteConfig.github,
+    external: true,
+  },
+};
 
 export default function ContactChannels() {
   const { content } = useLanguage();
@@ -18,14 +31,17 @@ export default function ContactChannels() {
 
   return (
     <div className="contact-channels">
-      {channels.map(({ label, value }, i) => {
-        const Icon = icons[i];
+      {channels.map(({ label, value }) => {
+        const meta = CHANNEL_META[label];
+        if (!meta) return null;
+        const Icon = meta.icon;
+
         return (
           <a
             key={label}
-            href={hrefs[i]}
+            href={meta.href}
             className="contact-channel"
-            {...(external[i] ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            {...(meta.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           >
             <div className="contact-channel__icon"><Icon size={20} strokeWidth={1.6} /></div>
             <div>

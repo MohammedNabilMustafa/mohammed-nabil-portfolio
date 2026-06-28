@@ -1,10 +1,11 @@
 import PageMeta, { JsonLd } from '../components/PageMeta';
 import Hero from '../components/Hero';
 import StatCard from '../components/StatCard';
-import ServiceCard from '../components/ServiceCard';
 import FeaturedCaseStudy from '../components/FeaturedCaseStudy';
 import IndustriesSection from '../components/IndustriesSection';
 import SolutionsSection from '../components/SolutionsSection';
+import TechnologyStack from '../components/TechnologyStack';
+import WhyWorkWithMe from '../components/WhyWorkWithMe';
 import SectionHeader from '../components/SectionHeader';
 import CTASection from '../components/CTASection';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -20,7 +21,8 @@ export default function Home() {
     industries = [],
     solutions = [],
     featuredCaseStudies = [],
-    services = [],
+    techStack = [],
+    whyWorkWithMe = [],
   } = content;
 
   const schema = {
@@ -30,7 +32,7 @@ export default function Home() {
     description: site.description,
     founder: { '@type': 'Person', name: site.name, jobTitle: site.role },
     areaServed: 'Worldwide',
-    serviceType: ['ERP Systems', 'CRM', 'Business Automation', 'Digital Transformation'],
+    serviceType: ['ERP Systems', 'LMS Platforms', 'CRM', 'Business Automation', 'Enterprise Software'],
   };
 
   return (
@@ -44,6 +46,7 @@ export default function Home() {
         subtitle={hero.subtitle}
         primaryCta={hero.primaryCta}
         secondaryCta={hero.secondaryCta}
+        stats={hero.stats}
       />
 
       <section className="section section--tight">
@@ -101,15 +104,22 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <SectionHeader
-            eyebrow={home.services.eyebrow}
-            title={home.services.title}
-            subtitle={home.services.subtitle}
+            eyebrow={home.techStack.eyebrow}
+            title={home.techStack.title}
+            subtitle={home.techStack.subtitle}
           />
-          <div className="services-grid">
-            {services.map((s, i) => (
-              <ServiceCard key={s.title} {...s} index={i} />
-            ))}
-          </div>
+          <TechnologyStack items={techStack} />
+        </div>
+      </section>
+
+      <section className="section section--alt">
+        <div className="container">
+          <SectionHeader
+            eyebrow={home.whyWorkWithMe.eyebrow}
+            title={home.whyWorkWithMe.title}
+            subtitle={home.whyWorkWithMe.subtitle}
+          />
+          <WhyWorkWithMe items={whyWorkWithMe} />
         </div>
       </section>
 
