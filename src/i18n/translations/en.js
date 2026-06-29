@@ -142,7 +142,7 @@ export default {
     about: {
       headline: 'Why I Build Business Platforms',
       intro:
-        'Mohammed combines business operations experience with software engineering. He has built platforms across manufacturing, education, commerce, and business management — converting real workflows into scalable software systems.',
+        'I combine business operations experience with software engineering. I have built platforms across manufacturing, education, commerce, and business management — converting real workflows into scalable software systems.',
       story: [
         'Most businesses do not need another app. They need a platform — one system that connects sales, production, finance, inventory, students, instructors, or customers into a single source of truth.',
         'I started building business systems because I saw the same pattern everywhere: companies running on spreadsheets, WhatsApp messages, and disconnected tools. Orders lost between departments. Students managed across manual schedules. Inventory that never matched reality.',

@@ -681,7 +681,7 @@ html[dir="rtl"] .screenshot-lightbox__close {
   border: 1px solid var(--border-light); background: var(--surface);
   font-weight: 600; font-size: 1.05rem; line-height: 1.6;
 }
-.approach-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .approach-card { padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); }
 .approach-card__num { font-size: 0.75rem; font-weight: 700; color: var(--accent-hover); letter-spacing: 0.06em; display: block; margin-bottom: 0.75rem; }
 .approach-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.45rem; }
@@ -800,6 +800,7 @@ html[dir="rtl"] .screenshot-lightbox__close {
   .footer__top { grid-template-columns: 1fr 1fr; }
   .footer__brand { grid-column: 1 / -1; }
   .stats-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .approach-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {

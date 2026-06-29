@@ -350,6 +350,7 @@ export function buildContent(lang, rawAr) {
     contactChannels: buildContactChannels(raw, lang),
     footerCaseStudies:
       lang === 'en' ? en.common.footerCaseStudies : raw.footerCaseStudies,
+    aboutPage,
     about: {
       ...raw.site.about,
       story: raw.site.about?.story ?? [],
