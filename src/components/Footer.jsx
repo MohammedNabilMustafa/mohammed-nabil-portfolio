@@ -20,17 +20,6 @@ export default function Footer() {
             </div>
           </Link>
           <p>{site.description}</p>
-          <div className="footer__brand-downloads">
-            <a href="/brand/logo-mark.svg" download="mohammed-nabil-logo-mark.svg">
-              {common.footer.downloadLogoMark}
-            </a>
-            <a href="/brand/logo-full.svg" download="mohammed-nabil-logo-full.svg">
-              {common.footer.downloadLogoFull}
-            </a>
-            <a href="/brand/logo-mark-512.png" download="mohammed-nabil-logo-512.png">
-              {common.footer.downloadLogoPng}
-            </a>
-          </div>
         </div>
 
         <div className="footer__col">

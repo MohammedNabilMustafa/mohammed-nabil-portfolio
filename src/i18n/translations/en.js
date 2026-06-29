@@ -53,9 +53,6 @@ export default {
       contact: 'Contact',
       rights: 'All rights reserved.',
       tagline: 'Enterprise Business Systems Engineering',
-      downloadLogoMark: 'Download logo (SVG)',
-      downloadLogoFull: 'Download full logo (SVG)',
-      downloadLogoPng: 'Download logo (PNG)',
     },
     footerCaseStudies: {
       ischool: 'iSchool LMS',

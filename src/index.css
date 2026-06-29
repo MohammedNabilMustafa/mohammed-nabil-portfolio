@@ -769,19 +769,6 @@ html[dir="rtl"] .screenshot-lightbox__close {
 .footer__logo strong { display: block; font-size: 0.9rem; }
 .footer__logo span { font-size: 0.72rem; color: var(--text-dim); }
 .footer__brand p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; max-width: 300px; }
-.footer__brand-downloads {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  margin-top: 1rem;
-}
-.footer__brand-downloads a {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--accent-hover);
-  transition: color 0.15s;
-}
-.footer__brand-downloads a:hover { color: var(--text); }
 .footer__col h4 { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 0.85rem; }
 .footer__col ul { display: flex; flex-direction: column; gap: 0.45rem; }
 .footer__col a { font-size: 0.85rem; color: var(--text-secondary); transition: color 0.15s; }

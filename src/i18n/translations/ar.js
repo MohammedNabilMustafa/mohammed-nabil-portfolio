@@ -24,9 +24,6 @@ export default {
       contact: 'تواصل',
       allRightsReserved: 'جميع الحقوق محفوظة',
       tagline: 'هندسة أنظمة الأعمال المؤسسية',
-      downloadLogoMark: 'تحميل الشعار (SVG)',
-      downloadLogoFull: 'تحميل الشعار الكامل (SVG)',
-      downloadLogoPng: 'تحميل الشعار (PNG)',
     },
     language: {
       en: 'English',
