@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="mark-grad" x1="51" y1="26" x2="461" y2="486" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5c0f0f"/>
+      <stop offset="0.45" stop-color="#8b1515"/>
+      <stop offset="1" stop-color="#b91c1c"/>
+    </linearGradient>
+    <linearGradient id="mark-shine" x1="256" y1="0" x2="256" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="rgba(255,255,255,0.14)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#mark-grad)"/>
+  <rect width="512" height="512" rx="128" fill="url(#mark-shine)" opacity="0.55"/>
+  <path d="M128 358V154h36l66 130.5L296 154h33v204" stroke="#fff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M329 154l87 204M420 154v204" stroke="#fff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M115 390h282" stroke="rgba(255,255,255,0.28)" stroke-width="15" stroke-linecap="round"/>
+</svg>

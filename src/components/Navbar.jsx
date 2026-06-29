@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useScroll, useMotionValueEvent } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
+import BrandLogo from './BrandLogo';
 
 export default function Navbar() {
   const { content } = useLanguage();
@@ -16,7 +17,7 @@ export default function Navbar() {
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="container navbar__inner">
         <Link to="/" className="navbar__brand">
-          <span className="navbar__mark">MN</span>
+          <BrandLogo size={34} className="navbar__logo" />
           <span className="navbar__name">
             {site.name}
             <small>{site.role}</small>

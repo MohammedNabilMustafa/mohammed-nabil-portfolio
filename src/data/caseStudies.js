@@ -69,6 +69,8 @@ export const featuredCaseStudies = [
       'A lightweight ERP solution designed for small and medium businesses — delivering essential CRM, orders, inventory, finance, and reporting without enterprise complexity.',
     path: '/case-studies/elite-erp',
     variant: 'starter',
+    image: images.elite.dashboard,
+    imageAlt: 'Elite ERP — executive dashboard with clients, merchants, materials, safes, and stock metrics',
     modules: ['CRM', 'Orders', 'Inventory', 'Finance', 'Dashboards', 'User Management'],
     metrics: [
       { label: 'Core Modules', value: '10+' },
@@ -386,11 +388,36 @@ export const eliteErpCaseStudy = {
   ],
 
   gallery: [
-    { title: 'Executive Dashboard', description: 'At-a-glance business performance overview' },
-    { title: 'Clients & Suppliers', description: 'Client and merchant management' },
-    { title: 'Materials & Stock', description: 'Material catalog and stock movements' },
-    { title: 'Safes & Finance', description: 'Cash management and financial transactions' },
-    { title: 'Assets Module', description: 'Business asset tracking and management' },
+    {
+      title: 'Executive Dashboard',
+      description: 'At-a-glance business performance overview',
+      src: images.elite.dashboard,
+      alt: 'Elite ERP dashboard with clients, merchants, materials, safes, and stock value metrics',
+    },
+    {
+      title: 'Clients & Suppliers',
+      description: 'Client and merchant management',
+      src: images.elite.merchants,
+      alt: 'Elite ERP merchants module with supplier records and balances',
+    },
+    {
+      title: 'Materials & Stock',
+      description: 'Material catalog and stock movements',
+      src: images.elite.materials,
+      alt: 'Elite ERP materials inventory with stock levels and unit costs',
+    },
+    {
+      title: 'Safes & Finance',
+      description: 'Cash management and financial transactions',
+      src: images.elite.safes,
+      alt: 'Elite ERP safes module for cash, bank, and wallet accounts',
+    },
+    {
+      title: 'Assets Module',
+      description: 'Business asset tracking and management',
+      src: images.elite.assets,
+      alt: 'Elite ERP assets register with purchase and current values',
+    },
   ],
 };
 
@@ -488,11 +515,11 @@ export const ischoolCaseStudy = {
   ],
 
   gallery: [
-    { title: 'Student Portal', description: 'Student enrollment, courses, and session access' },
-    { title: 'Instructor Portal', description: 'Class management and teaching workflows' },
-    { title: 'Admin Dashboard', description: 'Operations command center for education teams' },
-    { title: 'Live Sessions', description: 'Daily live class scheduling and delivery' },
-    { title: 'Exams & Attendance', description: 'Assessment and attendance tracking' },
-    { title: 'Payments & CRM', description: 'Tuition, leads, and enrollment pipeline' },
+    { title: 'Student Portal', description: 'Student enrollment, courses, and session access', comingSoon: true },
+    { title: 'Instructor Portal', description: 'Class management and teaching workflows', comingSoon: true },
+    { title: 'Admin Dashboard', description: 'Operations command center for education teams', comingSoon: true },
+    { title: 'Live Sessions', description: 'Daily live class scheduling and delivery', comingSoon: true },
+    { title: 'Exams & Attendance', description: 'Assessment and attendance tracking', comingSoon: true },
+    { title: 'Payments & CRM', description: 'Tuition, leads, and enrollment pipeline', comingSoon: true },
   ],
 };

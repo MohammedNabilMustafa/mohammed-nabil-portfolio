@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
+import BrandLogo from './BrandLogo';
 
 export default function Footer() {
   const { content } = useLanguage();
@@ -12,13 +13,24 @@ export default function Footer() {
       <div className="container footer__top">
         <div className="footer__brand">
           <Link to="/" className="footer__logo">
-            <span className="navbar__mark">MN</span>
+            <BrandLogo size={34} className="navbar__logo" />
             <div>
               <strong>{site.name}</strong>
               <span>{site.role}</span>
             </div>
           </Link>
           <p>{site.description}</p>
+          <div className="footer__brand-downloads">
+            <a href="/brand/logo-mark.svg" download="mohammed-nabil-logo-mark.svg">
+              {common.footer.downloadLogoMark}
+            </a>
+            <a href="/brand/logo-full.svg" download="mohammed-nabil-logo-full.svg">
+              {common.footer.downloadLogoFull}
+            </a>
+            <a href="/brand/logo-mark-512.png" download="mohammed-nabil-logo-512.png">
+              {common.footer.downloadLogoPng}
+            </a>
+          </div>
         </div>
 
         <div className="footer__col">

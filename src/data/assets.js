@@ -13,6 +13,12 @@ import minsalOrders from '../../screenshoots/Minsal/Screenshot 2026-06-28 at 5.2
 import minsalCrmClients from '../../screenshoots/Minsal/Screenshot 2026-06-28 at 5.23.44 PM.png';
 import minsalSupplyChain from '../../screenshoots/Minsal/Screenshot 2026-06-28 at 5.24.00 PM.png';
 
+import eliteDashboard from '../../screenshoots/Elite/Screenshot 2026-06-28 at 11.24.09 PM.png';
+import eliteMerchants from '../../screenshoots/Elite/Screenshot 2026-06-28 at 11.24.17 PM.png';
+import eliteMaterials from '../../screenshoots/Elite/Screenshot 2026-06-28 at 11.24.20 PM.png';
+import eliteSafes from '../../screenshoots/Elite/Screenshot 2026-06-28 at 11.24.23 PM.png';
+import eliteAssets from '../../screenshoots/Elite/Screenshot 2026-06-28 at 11.24.29 PM.png';
+
 export const images = {
   ainShams: {
     mainDashboard,
@@ -30,6 +36,13 @@ export const images = {
     orders: minsalOrders,
     crmClients: minsalCrmClients,
     supplyChain: minsalSupplyChain,
+  },
+  elite: {
+    dashboard: eliteDashboard,
+    merchants: eliteMerchants,
+    materials: eliteMaterials,
+    safes: eliteSafes,
+    assets: eliteAssets,
   },
   /** @deprecated use images.ainShams.mainDashboard */
   ainShamsDashboard: mainDashboard,

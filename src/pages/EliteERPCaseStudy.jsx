@@ -11,6 +11,8 @@ import {
   BulletList,
 } from '../components/CaseStudySections';
 import { useLanguage } from '../i18n/LanguageContext';
+import { images } from '../data/assets';
+import Screenshot from '../components/ScreenshotPlaceholder';
 
 export default function EliteERPCaseStudy() {
   const { content } = useLanguage();
@@ -26,6 +28,19 @@ export default function EliteERPCaseStudy() {
       <CaseStudyPageHero study={study} theme="starter">
         <p className="cs-hero__summary">{study.overview}</p>
       </CaseStudyPageHero>
+
+      <section className="section section--tight">
+        <div className="container">
+          <Screenshot
+            src={images.elite.dashboard}
+            alt="Elite ERP executive dashboard with clients, merchants, materials, safes, and stock metrics"
+            title="Executive Dashboard"
+            description={study.gallery[0]?.description}
+            variant="starter"
+            large
+          />
+        </div>
+      </section>
 
       <section className="section section--tight">
         <div className="container">
@@ -79,7 +94,7 @@ export default function EliteERPCaseStudy() {
 
       <section className="section section--alt">
         <div className="container">
-          <SectionHeader eyebrow={cs.platform} title={cs.gallery} subtitle={cs.gallerySubtitle} />
+          <SectionHeader eyebrow={cs.platform} title={cs.gallery} subtitle={cs.gallerySubtitleElite || cs.gallerySubtitle} />
           <GalleryGrid items={study.gallery} variant="starter" />
         </div>
       </section>

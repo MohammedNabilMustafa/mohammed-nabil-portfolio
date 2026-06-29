@@ -76,9 +76,11 @@ export default function Screenshot({
   large = false,
   src,
   alt,
+  comingSoon = false,
 }) {
   const { content } = useLanguage();
-  const { screenshotPlaceholder, viewScreenshot } = content.common;
+  const { screenshotPlaceholder, screenshotComingSoon, viewScreenshot } = content.common;
+  const placeholderText = comingSoon ? screenshotComingSoon : screenshotPlaceholder;
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const openLightbox = useCallback(() => {
@@ -90,7 +92,7 @@ export default function Screenshot({
   return (
     <>
       <motion.figure
-        className={`screenshot${large ? ' screenshot--large' : ''} screenshot--${variant}${src ? ' screenshot--real' : ''}`}
+        className={`screenshot${large ? ' screenshot--large' : ''} screenshot--${variant}${src ? ' screenshot--real' : ''}${comingSoon ? ' screenshot--soon' : ''}`}
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-40px' }}
@@ -115,7 +117,7 @@ export default function Screenshot({
               </div>
               <div className="screenshot__body">
                 <ImageIcon size={large ? 36 : 28} strokeWidth={1.4} />
-                <p>{screenshotPlaceholder}</p>
+                <p>{placeholderText}</p>
               </div>
             </>
           )}

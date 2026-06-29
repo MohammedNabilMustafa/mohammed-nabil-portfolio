@@ -12,10 +12,12 @@
   --text: #fafafa;
   --text-secondary: #a1a1aa;
   --text-dim: #71717a;
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --accent-glow: rgba(59, 130, 246, 0.15);
-  --gradient: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  --accent: #991b1b;
+  --accent-hover: #dc2626;
+  --accent-deep: #7f1d1d;
+  --accent-glow: rgba(153, 27, 27, 0.18);
+  --accent-border: rgba(185, 28, 28, 0.22);
+  --gradient: linear-gradient(135deg, #6d0f0f 0%, #991b1b 48%, #c41e1e 100%);
   --warm: #d4a574;
   --warm-deep: #c4785a;
   --warm-glow: rgba(212, 165, 116, 0.12);
@@ -23,7 +25,7 @@
   --education: #8b5cf6;
   --education-hover: #a78bfa;
   --education-glow: rgba(139, 92, 246, 0.14);
-  --education-gradient: linear-gradient(135deg, #8b5cf6, #6366f1);
+  --education-gradient: linear-gradient(135deg, #8b5cf6, #a855f7);
   --radius: 14px;
   --radius-lg: 20px;
   --radius-sm: 8px;
@@ -151,10 +153,10 @@ html[dir="rtl"] .navbar__cta { margin-left: 0; margin-right: 0.25rem; }
 }
 .navbar__inner { display: flex; align-items: center; height: var(--nav-h); gap: 1.5rem; }
 .navbar__brand { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
-.navbar__mark {
-  width: 34px; height: 34px; border-radius: 9px;
-  display: grid; place-items: center;
-  background: var(--gradient); font-size: 0.72rem; font-weight: 800; color: #fff;
+.navbar__logo,
+.brand-logo {
+  flex-shrink: 0;
+  display: block;
 }
 .navbar__name { display: flex; flex-direction: column; font-weight: 600; font-size: 0.9rem; line-height: 1.2; }
 .navbar__name small { font-weight: 500; font-size: 0.68rem; color: var(--text-dim); }
@@ -498,7 +500,7 @@ html[dir="rtl"] .navbar__cta { margin-left: 0; margin-right: 0.25rem; }
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
   aspect-ratio: 16/10; color: var(--text-dim); font-size: 0.78rem;
 }
-.screenshot--real .screenshot__frame { border-color: rgba(59, 130, 246, 0.2); }
+.screenshot--real .screenshot__frame { border-color: var(--accent-border); }
 .screenshot__crop {
   overflow: hidden;
   line-height: 0;
@@ -767,6 +769,19 @@ html[dir="rtl"] .screenshot-lightbox__close {
 .footer__logo strong { display: block; font-size: 0.9rem; }
 .footer__logo span { font-size: 0.72rem; color: var(--text-dim); }
 .footer__brand p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; max-width: 300px; }
+.footer__brand-downloads {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 1rem;
+}
+.footer__brand-downloads a {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-hover);
+  transition: color 0.15s;
+}
+.footer__brand-downloads a:hover { color: var(--text); }
 .footer__col h4 { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 0.85rem; }
 .footer__col ul { display: flex; flex-direction: column; gap: 0.45rem; }
 .footer__col a { font-size: 0.85rem; color: var(--text-secondary); transition: color 0.15s; }
