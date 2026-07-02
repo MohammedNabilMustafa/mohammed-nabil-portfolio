@@ -24,23 +24,6 @@ export const featuredCaseStudies = [
     tech: ['React', 'Firebase', 'Firestore', 'Cloud Functions', 'PrimeReact', 'Gemini AI', 'Chart.js', 'QR', 'PDF'],
   },
   {
-    slug: 'ischool-lms',
-    title: 'iSchool Learning Management System',
-    subtitle: 'Education Platform / LMS',
-    description:
-      'A complete learning management and operations platform built and evolved over 4 years — managing thousands of students, hundreds of instructors, daily live sessions, payments, exams, and support.',
-    path: '/case-studies/ischool-lms',
-    variant: 'education',
-    modules: ['Student Portal', 'Instructor Portal', 'Live Sessions', 'Scheduling', 'Payments', 'Exams', 'CRM', 'Support'],
-    metrics: [
-      { label: 'Students Supported', value: '10,000+' },
-      { label: 'Live Sessions / Day', value: '400+' },
-      { label: 'Instructors', value: '200+' },
-      { label: 'Years of Development', value: '4' },
-    ],
-    tech: ['React', 'Wix', 'LMS', 'Live Sessions', 'Payments', 'CRM'],
-  },
-  {
     slug: 'minsal-commerce-os',
     title: 'Minsal Commerce OS',
     subtitle: 'Commerce + Business Operating System',
@@ -60,6 +43,23 @@ export const featuredCaseStudies = [
       { label: 'React Components', value: '135' },
     ],
     tech: ['Next.js', 'React', 'TypeScript', 'Firebase', 'Tailwind', 'Zustand', 'Zod', 'React Hook Form'],
+  },
+  {
+    slug: 'ischool-lms',
+    title: 'iSchool Learning Management System',
+    subtitle: 'Education Platform / LMS',
+    description:
+      'A complete learning management and operations platform built and evolved over 4 years — managing thousands of students, hundreds of instructors, daily live sessions, payments, exams, and support.',
+    path: '/case-studies/ischool-lms',
+    variant: 'education',
+    modules: ['Student Portal', 'Instructor Portal', 'Live Sessions', 'Scheduling', 'Payments', 'Exams', 'CRM', 'Support'],
+    metrics: [
+      { label: 'Students Supported', value: '10,000+' },
+      { label: 'Live Sessions / Day', value: '400+' },
+      { label: 'Instructors', value: '200+' },
+      { label: 'Years of Development', value: '4' },
+    ],
+    tech: ['React', 'Wix', 'LMS', 'Live Sessions', 'Payments', 'CRM'],
   },
   {
     slug: 'elite-erp',
