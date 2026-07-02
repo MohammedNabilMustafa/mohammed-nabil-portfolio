@@ -76,6 +76,8 @@ export default {
       approachSubtitle: 'مشاكل العمل أولًا. البنية ثانيًا. الكود ثالثًا.',
       operations: 'العمليات',
       engineering: 'الهندسة',
+      platform: 'المنصة',
+      gallery: 'المعرض',
       capabilities: 'القدرات',
       process: 'المنهجية',
       trackRecord: 'سجل الإنجاز',
@@ -128,6 +130,11 @@ export default {
       title: 'Elite ERP — دراسة حالة | Mohammed Nabil',
       description:
         'Elite ERP — منصة إدارة أعمال خفيفة للشركات الصغيرة والمتوسطة. CRM وOrders وInventory وFinance وDashboards.',
+    },
+    ischool: {
+      title: 'iSchool LMS — دراسة حالة | Mohammed Nabil',
+      description:
+        'منصة تعليمية تدعم أكثر من 10,000 طالب و400+ جلسة مباشرة يوميًا — مع 4 سنوات من التطوير المستمر.',
     },
   },
 

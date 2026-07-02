@@ -120,6 +120,7 @@ function buildCaseStudySections(raw, lang) {
   const elite = raw.caseStudies.elite.sectionSubtitles || {};
 
   return {
+    ...en.caseStudySections,
     overview: s.overview,
     challenge: s.businessChallenge,
     solution: s.solution,
@@ -146,11 +147,25 @@ function buildCaseStudySections(raw, lang) {
     modulesAinShams: ain.coreModules,
     modulesMinsal: minsal.coreModules,
     modulesElite: elite.coreModules,
+    modulesIschool: 'أربع عشرة وحدة متكاملة تغطي دورة عمليات التعليم كاملة.',
     archAinShams: ain.systemArchitecture,
     archMinsal: minsal.systemArchitecture,
     archElite: elite.systemArchitecture,
+    archIschool: 'بنية متعددة البوابات تمتد عبر عمليات التعليم وعمليات الأعمال والتطور المستمر.',
     workflowAinShams: ain.manufacturingWorkflow,
     workflowMinsal: minsal.supplyChainFlow,
+    workflowIschool: 'كيف ينتقل الطلاب من التسجيل عبر الجلسات والتقييمات والمدفوعات والدعم.',
+    ischoolHeroSummary:
+      'منصة تعليمية لإدارة آلاف الطلاب ومئات المدربين والجلسات المباشرة اليومية والمدفوعات والامتحانات والحضور والمناهج وعمليات الدعم.',
+    platformScaleSubtitle: 'حجم المنصة أثناء المشاركة — استمرت الشركة في التوسع بعد ذلك.',
+    gallerySubtitleIschool: 'لقطات شاشة المنصة قريبًا.',
+    gallerySubtitleElite: 'لقطات حية من لوحة Elite ERP والوحدات الأساسية.',
+    ctaIschool: {
+      title: 'تبني منصة تعليمية؟',
+      subtitle:
+        'أصمّم منصات LMS للطلاب والمدربين والجلسات المباشرة والمدفوعات والامتحانات وعمليات التعليم على نطاق واسع.',
+      secondary: raw.common.buttons.allCaseStudies,
+    },
     ctaAinShams: {
       ...raw.caseStudies.ainShams.cta,
       secondary: raw.common.buttons.allCaseStudies,
@@ -303,9 +318,10 @@ export function buildContent(lang, rawAr) {
     lang === 'en'
       ? en.cta
       : {
+          ...en.cta,
           ...raw.cta,
-          aboutTitle: raw.aboutPage.cta.title,
-          aboutSubtitle: raw.aboutPage.cta.subtitle,
+          aboutTitle: raw.aboutPage?.cta?.title ?? en.cta.aboutTitle,
+          aboutSubtitle: raw.aboutPage?.cta?.subtitle ?? en.cta.aboutSubtitle,
         };
 
   const aboutPage =
@@ -330,7 +346,10 @@ export function buildContent(lang, rawAr) {
   return {
     common,
     navLinks,
-    meta: raw.meta,
+    meta: {
+      ...en.meta,
+      ...raw.meta,
+    },
     site,
     hero,
     home: raw.home,
