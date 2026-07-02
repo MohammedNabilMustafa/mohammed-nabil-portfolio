@@ -403,9 +403,9 @@ export default {
       eyebrow: 'دراسات الحالة',
       headline: 'أنظمة تُشغّل الأعمال',
       subtitle:
-        'ثلاث منصات جاهزة للإنتاج — تصنيع مؤسسي وعمليات تجارة وERP للشركات الصغيرة والمتوسطة.',
-      primaryCta: 'Ain Shams ERP',
-      secondaryCta: 'Minsal Commerce OS',
+        'أربع منصات جاهزة للإنتاج — تعليم وتصنيع وتجارة وإدارة أعمال.',
+      primaryCta: { label: 'Ain Shams ERP', path: '/case-studies/ain-shams-press' },
+      secondaryCta: { label: 'iSchool LMS', path: '/case-studies/ischool-lms' },
     },
     cta: {
       title: 'هل تحتاج منصة مبنية لعملك؟',

@@ -262,8 +262,8 @@ export default {
       eyebrow: 'Case Studies',
       headline: 'Enterprise Platforms in Production',
       subtitle: 'Four production-grade platforms — education LMS, manufacturing ERP, commerce OS, and starter business management.',
-      primaryCta: 'Ain Shams ERP',
-      secondaryCta: 'iSchool LMS',
+      primaryCta: { label: 'Ain Shams ERP', path: '/case-studies/ain-shams-press' },
+      secondaryCta: { label: 'iSchool LMS', path: '/case-studies/ischool-lms' },
     },
     cta: {
       title: 'Need an Enterprise Platform Built for Your Business?',

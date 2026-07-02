@@ -16,8 +16,8 @@ export default function CaseStudies() {
         eyebrow={caseStudiesPage.hero.eyebrow}
         headline={caseStudiesPage.hero.headline}
         subtitle={caseStudiesPage.hero.subtitle}
-        primaryCta={{ label: caseStudiesPage.hero.primaryCta, path: '/case-studies/ain-shams-press' }}
-        secondaryCta={{ label: caseStudiesPage.hero.secondaryCta, path: '/case-studies/ischool-lms' }}
+        primaryCta={caseStudiesPage.hero.primaryCta}
+        secondaryCta={caseStudiesPage.hero.secondaryCta}
         compact
       />
 
